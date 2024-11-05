@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(${CMAKE_PROJECT_NAME}_test)
+project(JavaChipCpp_test)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -22,6 +22,6 @@ add_executable(${PROJECT_NAME}
         src/Serializable/SerializableTest.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} gtest_main gmock_main ${CMAKE_PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME} gtest_main gmock_main JavaChipCpp)
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
