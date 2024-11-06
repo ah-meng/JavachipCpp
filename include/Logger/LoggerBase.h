@@ -19,7 +19,6 @@ public:
 
 protected:
     virtual void Log(const std::string& level, const std::string& message) = 0;
-    [[nodiscard]] static std::string GetCurrentTimeString(const std::string& format);
 
 private:
     virtual void LogWithMutex(const std::string& level, const std::string& message);

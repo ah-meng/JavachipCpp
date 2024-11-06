@@ -3,9 +3,10 @@
 //
 
 #include <string>
-#include <iomanip>
 #include <filesystem>
 #include "Logger/FileLogger.h"
+
+#include <StringUtil/StringUtil.h>
 
 namespace fs = std::filesystem;
 
@@ -27,7 +28,7 @@ void BasicFileLogger::Log(const std::string& level, const std::string& message) 
     std::ofstream logFile(filePath, std::ios::app);
     if (!logFile.is_open()) throw std::runtime_error("Could not open log file.");
 
-    logFile << "[" << GetCurrentTimeString("%H:%M:%S") << "] " << "[" << level << "] " << message << std::endl;
+    logFile << "[" << StringUtil::GetCurrentTimeString("%H:%M:%S") << "] " << "[" << level << "] " << message << std::endl;
 }
 
 std::string BasicFileLogger::GenerateFileName() {
@@ -39,7 +40,7 @@ bool BasicFileLogger::IsDateChanged() const {
 }
 
 std::string BasicFileLogger::GenerateDateString() {
-    return GetCurrentTimeString("%Y-%m-%d");
+    return StringUtil::GetCurrentTimeString("%Y-%m-%d");
 }
 
 void BasicFileLogger::UpdateLogFile() {

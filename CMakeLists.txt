@@ -17,6 +17,7 @@ set(SOURCES
         src/Logger/LoggerBase.cpp
         src/Logger/ConsoleLogger.cpp
         src/Logger/FileLogger.cpp
+        src/StringUtil/StringUtil.cpp
 )
 add_subdirectory(test)
 
