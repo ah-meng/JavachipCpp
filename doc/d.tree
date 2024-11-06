@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="d"
+                 name="JavaChip Cpp"
+                 start-page="starter-topic.md">
+
+    <toc-element topic="starter-topic.md"/>
+    <toc-element toc-title="Logger">
+        <toc-element topic="ILogger.md"/>
+        <toc-element topic="BaseLogger.md"/>
+        <toc-element topic="ConsoleLogger.md"/>
+        <toc-element topic="FileLogger.md"/>
+    </toc-element>
+    <toc-element toc-title="Dynamic Loader">
+
+    </toc-element>
+</instance-profile>
