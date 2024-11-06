@@ -16,4 +16,8 @@
     <toc-element toc-title="Dynamic Loader">
 
     </toc-element>
+    <toc-element toc-title="String Util">
+
+        <toc-element topic="GetCurrentTimeString.md"/>
+    </toc-element>
 </instance-profile>
