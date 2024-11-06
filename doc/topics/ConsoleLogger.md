@@ -16,10 +16,10 @@ ILogger
 
 ## Syntax
 
-```cpp
+```c++
 class ConsoleLogger final : public LoggerBase {
 protected:
-void Log(const std::string& level, const std::string& message) override;
+    void Log(const std::string& level, const std::string& message) override;
 };
 ```
 
@@ -49,7 +49,7 @@ void Log(const std::string& level, const std::string& message) override;
 
 아래는 `ConsoleLogger`를 사용하여 `INFO` 메시지를 기록하는 예시입니다.
 
-```cpp
+```c++
 ConsoleLogger logger;
 logger.Info("Application started");
 // 출력 예시: [12:34:56] [INFO] Application started

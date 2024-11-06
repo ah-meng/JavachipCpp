@@ -63,7 +63,7 @@ private:
 
 - **`static std::string GetCurrentTimeString(const std::string& format)`**
     - **Description**: 주어진 형식에 따라 현재 시간을 문자열로 반환합니다. 로그 메시지에 타임스탬프를 추가하는 데 사용됩니다.
-    - **Usage**: `std::string currentTime = GetCurrentTimeString("%Y-%m-%d %H:%M:%S");`
+    - **Usage**: `std::string currentTime = GetCurrentTimeString("%\Y-%m-%d %H:%M:%S");`
 
 ### Private Member Functions
 
