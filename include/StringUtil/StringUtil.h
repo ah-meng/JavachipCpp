@@ -16,5 +16,7 @@ public:
         const std::filesystem::file_time_type& time,
         const std::string& format = "%Y-%m-%d %H:%M:%S"
     );
+
+    [[nodiscard]] static std::string DecimalToHexString(int decimal);
 };
 #endif //STRINGUTIL_H

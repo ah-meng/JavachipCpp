@@ -41,3 +41,9 @@ std::string StringUtil::GetFileTimeToString(const std::filesystem::file_time_typ
 
     return oss.str();
 }
+
+std::string StringUtil::DecimalToHexString(const int decimal) {
+    std::stringstream ss;
+    ss << std::hex << decimal;
+    return ss.str();
+}
