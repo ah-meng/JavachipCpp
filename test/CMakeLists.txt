@@ -20,6 +20,7 @@ add_executable(${PROJECT_NAME}
         src/Logger/LoggerTest.cpp
         src/Logger/BasicLoggerTest.cpp
         src/Serializable/SerializableTest.cpp
+        src/StringUtil/StringUtilTest.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} gtest_main gmock_main JavaChipCpp)
