@@ -22,3 +22,22 @@ std::string StringUtil::GetCurrentTimeString(const std::string& format) {
 
     return ss.str();
 }
+
+std::string StringUtil::GetFileTimeToString(const std::filesystem::file_time_type& time, const std::string& format) {
+    // file_time_type을 system_clock::time_point로 변환
+    auto sctp = std::chrono::time_point_cast<std::chrono::system_clock::duration>(
+        time - std::filesystem::file_time_type::clock::now() +
+        std::chrono::system_clock::now());
+
+    // system_clock::time_point를 std::time_t로 변환
+    const std::time_t t = std::chrono::system_clock::to_time_t(sctp);
+
+    // std::time_t를 포맷된 문자열로 변환
+    const std::tm tm = *std::localtime(&t); // 로컬 시간대 기준으로 변환
+
+    // 포맷팅된 날짜와 시간 문자열 생성
+    std::ostringstream oss;
+    oss << std::put_time(&tm, format.c_str());
+
+    return oss.str();
+}
