@@ -24,6 +24,7 @@ TEST(StringUtilTest, FormatByteSizeTest) {
     // Valid cases
     EXPECT_EQ(StringUtil::FormatByteSize(1024), "1.0 KB"); // Default decimal places (1)
     EXPECT_EQ(StringUtil::FormatByteSize(1536), "1.5 KB"); // Value with default decimal places
+    EXPECT_EQ(StringUtil::FormatByteSize(1048576, 0), "1 MB"); // Custom decimal places
     EXPECT_EQ(StringUtil::FormatByteSize(1048576, 2), "1.00 MB"); // Custom decimal places
     EXPECT_EQ(StringUtil::FormatByteSize(1073741824, 3), "1.000 GB"); // Custom decimal places
     EXPECT_EQ(StringUtil::FormatByteSize(0), "0.0 byte"); // Zero value
