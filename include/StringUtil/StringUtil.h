@@ -20,11 +20,24 @@ public:
     [[nodiscard]] static std::string DecimalToHexString(int decimal);
 
     /**
-     * @brief Byte값을 KB, MB, GB, TB 등의 형식으로 변환
-     * @param size 변환할 Byte 크기
-     * @param precision 소수점 자릿수 (기본값은 1)
-     * @return 변환된 문자열
-     * @throws std::invalid_argument 음수를 전달한 경우
+     * @brief 주어진 바이트(Byte) 값을 KB, MB, GB, TB 등의 단위로 변환하여 문자열로 반환합니다.
+     *
+     * @details
+     *  입력된 `size` 값을 적절한 단위로 변환합니다.
+     *  변환된 값은 `precision`에 따라 소수점 이하 자리수를 지정하여 나타냅니다.
+     *
+     * @param size 변환할 바이트 크기 (0 이상이어야 함)
+     * @param precision 변환된 값의 소수점 이하 자릿수 (0 이상이어야 하며 기본값은 1)
+     * @return 단위와 함께 변환된 크기를 나타내는 문자열 (예: "1.0 KB", "1.00 MB")
+     * @throws std::invalid_argument `size`가 음수인 경우
+     * @throws std::invalid_argument `precision`이 음수인 경우
+     *
+     * @note 지원되는 단위는 "byte", "KB", "MB", "GB", "TB"로 최대 TB까지 변환 가능합니다.
+     *
+     * @example
+     * - `FormatByteSize(1024)` -> "1.0 KB"
+     * - `FormatByteSize(1048576, 2)` -> "1.00 MB"
+     * - `FormatByteSize(1073741824, 3)` -> "1.000 GB"
      */
     template <typename T>
     [[nodiscard]] static std::string FormatByteSize(T size, const int precision = 1) {
