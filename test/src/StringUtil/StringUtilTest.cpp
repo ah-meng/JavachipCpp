@@ -18,3 +18,26 @@ TEST(StringUtilTest, DecimalToHexStringTest)
     EXPECT_EQ(StringUtil::DecimalToHexString(-1), "ffffffff");
     // Assuming it handles unsigned integers or two's complement representation
 }
+
+
+TEST(StringUtilTest, FormatByteSizeTest) {
+    // Valid cases
+    EXPECT_EQ(StringUtil::FormatByteSize(1024), "1.0 KB"); // Default decimal places (1)
+    EXPECT_EQ(StringUtil::FormatByteSize(1536), "1.5 KB"); // Value with default decimal places
+    EXPECT_EQ(StringUtil::FormatByteSize(1048576, 2), "1.00 MB"); // Custom decimal places
+    EXPECT_EQ(StringUtil::FormatByteSize(1073741824, 3), "1.000 GB"); // Custom decimal places
+    EXPECT_EQ(StringUtil::FormatByteSize(0), "0.0 byte"); // Zero value
+    EXPECT_EQ(StringUtil::FormatByteSize(123456789, 1), "117.7 MB"); // Arbitrary value
+
+    // Edge cases
+    EXPECT_EQ(StringUtil::FormatByteSize(1), "1.0 byte"); // Minimal value
+    EXPECT_EQ(StringUtil::FormatByteSize(999), "999.0 byte"); // Below 1 KB boundary
+
+    // Invalid cases
+    EXPECT_THROW(StringUtil::FormatByteSize(-1), std::invalid_argument); // Negative value
+    EXPECT_THROW(StringUtil::FormatByteSize(-1024), std::invalid_argument); // Negative value at larger scale
+
+    // Invalid precision
+    EXPECT_THROW(StringUtil::FormatByteSize(1024, -1), std::invalid_argument); // Negative precision
+    EXPECT_THROW(StringUtil::FormatByteSize(1024, -5), std::invalid_argument); // Arbitrary negative precision
+}
