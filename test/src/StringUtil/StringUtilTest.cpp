@@ -42,3 +42,23 @@ TEST(StringUtilTest, FormatByteSizeTest) {
     EXPECT_THROW(StringUtil::FormatByteSize(1024, -1), std::invalid_argument); // Negative precision
     EXPECT_THROW(StringUtil::FormatByteSize(1024, -5), std::invalid_argument); // Arbitrary negative precision
 }
+
+
+TEST(StringUtilTest, TrimTest) {
+    // Valid cases
+    EXPECT_EQ(StringUtil::Trim("   hello   "), "hello"); // Leading and trailing spaces
+    EXPECT_EQ(StringUtil::Trim("\t hello\t "), "hello"); // Leading and trailing tabs
+    EXPECT_EQ(StringUtil::Trim("   hello world   "), "hello world"); // Multiple words with spaces
+    EXPECT_EQ(StringUtil::Trim(""), ""); // Empty string
+    EXPECT_EQ(StringUtil::Trim("   "), ""); // Only spaces
+    EXPECT_EQ(StringUtil::Trim("\t   \t"), ""); // Only spaces and tabs
+
+    // Edge cases
+    EXPECT_EQ(StringUtil::Trim("hello"), "hello"); // No leading or trailing whitespace
+    EXPECT_EQ(StringUtil::Trim("   hello"), "hello"); // Only leading whitespace
+    EXPECT_EQ(StringUtil::Trim("hello   "), "hello"); // Only trailing whitespace
+    EXPECT_EQ(StringUtil::Trim("\nhello\n"), "hello"); // Newline characters trimmed
+
+    // Mixed whitespace
+    EXPECT_EQ(StringUtil::Trim(" \n\t hello \n\t "), "hello"); // Mixed leading and trailing whitespace
+}

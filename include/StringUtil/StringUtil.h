@@ -62,5 +62,7 @@ public:
         oss << std::fixed << std::setprecision(precision) << displaySize << " " << units[unitIndex];
         return oss.str();
     }
+
+    [[nodiscard]] static std::string Trim(const std::string& str);
 };
 #endif //STRINGUTIL_H

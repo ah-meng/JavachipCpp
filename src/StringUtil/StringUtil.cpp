@@ -8,6 +8,8 @@
 
 #include "StringUtil/StringUtil.h"
 
+#include <algorithm>
+
 std::string StringUtil::GetCurrentTimeString(const std::string& format) {
     // 현재 시간 가져오기
     const auto now = std::chrono::system_clock::now();
@@ -46,4 +48,15 @@ std::string StringUtil::DecimalToHexString(const int decimal) {
     std::stringstream ss;
     ss << std::hex << decimal;
     return ss.str();
+}
+
+std::string StringUtil::Trim(const std::string &str) {
+    // 앞쪽 공백 건너뜀
+    const auto startIt = std::find_if_not(str.begin(), str.end(), isspace);
+
+    // 뒤쪽 공백 건너뜀
+    const auto endIt = std::find_if_not(str.rbegin(), str.rend(), isspace).base();
+
+    // 앞뒤 공백만 제거한 결과 문자열 생성
+    return (startIt < endIt) ? std::string(startIt, endIt) : std::string{};
 }
