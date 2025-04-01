@@ -9,7 +9,7 @@
 
 class ILogger {
 public:
-    enum class Level {INFO, DEBUG, WARN, ERROR, FATAL};
+    enum class Level {INFO, DEBUG, WARN, ERR, FATAL};
 
     virtual void Info(const std::string& message) = 0;
     virtual void Debug(const std::string& message) = 0;

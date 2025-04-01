@@ -19,7 +19,7 @@ void LoggerBase::Warn(const std::string& message) {
 }
 
 void LoggerBase::Error(const std::string& message) {
-    LogWithMutex(Level::ERROR, message);
+    LogWithMutex(Level::ERR, message);
 }
 
 void LoggerBase::Fatal(const std::string& message) {
@@ -34,7 +34,7 @@ std::string LoggerBase::GetLevelString(const Level &level) {
             return "DEBUG";
         case Level::WARN:
             return "WARN";
-        case Level::ERROR:
+        case Level::ERR:
             return "ERROR";
         case Level::FATAL:
             return "FATAL";
@@ -71,7 +71,6 @@ ILogger & LoggerBase::operator<<(std::ostream &(*manip)(std::ostream &)) {
         buffer.clear();  // 스레드별 버퍼 초기화
     }
     return *this;
-
 }
 
 void LoggerBase::Log(const Level &level, const std::string &message) {
