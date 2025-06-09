@@ -60,3 +60,17 @@ std::string StringUtil::Trim(const std::string &str) {
     // 앞뒤 공백만 제거한 결과 문자열 생성
     return (startIt < endIt) ? std::string(startIt, endIt) : std::string{};
 }
+
+std::string StringUtil::ByteToHexString(const unsigned char byte) {
+    std::stringstream ss;
+    ss << std::hex << std::uppercase << std::setw(2) << std::setfill('0') << byte;
+    return ss.str();
+}
+
+std::string StringUtil::ByteArrayToHexString(const std::vector<unsigned char>& byte) {
+    std::stringstream ss;
+    for (const auto& b : byte) {
+        ss << ByteToHexString(b);
+    }
+    return ss.str();
+}

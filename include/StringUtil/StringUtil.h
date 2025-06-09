@@ -7,6 +7,7 @@
 
 #include <string>
 #include <filesystem>
+#include <vector>
 
 class StringUtil {
 public:
@@ -16,6 +17,9 @@ public:
         const std::filesystem::file_time_type& time,
         const std::string& format = "%Y-%m-%d %H:%M:%S"
     );
+
+    [[nodiscard]] static std::string ByteToHexString(unsigned char byte);
+    [[nodiscard]] static std::string ByteArrayToHexString(const std::vector<unsigned char>& byte);
 
     [[nodiscard]] static std::string DecimalToHexString(int decimal);
 
