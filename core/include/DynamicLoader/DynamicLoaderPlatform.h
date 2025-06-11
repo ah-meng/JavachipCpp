@@ -4,7 +4,7 @@
 
 #ifndef DYNAMICLOADERPLATFORM_H
 #define DYNAMICLOADERPLATFORM_H
-#include "IDynamicLoaderPlatform.h"
+#include <DynamicLoader/IDynamicLoaderPlatform.h>
 
 class DynamicLoaderPlatform final : public IDynamicLoaderPlatform {
 public:

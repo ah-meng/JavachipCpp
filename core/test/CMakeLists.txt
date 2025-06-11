@@ -11,7 +11,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR} include)
 
 add_executable(${PROJECT_NAME}
         src/main.cpp
@@ -23,6 +23,6 @@ add_executable(${PROJECT_NAME}
         src/StringUtil/StringUtilTest.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} gtest_main gmock_main JavaChipCpp)
+target_link_libraries(${PROJECT_NAME} gtest_main gmock_main JavaChipCpp::Core)
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})

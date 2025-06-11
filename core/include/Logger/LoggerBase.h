@@ -7,7 +7,7 @@
 
 #include <mutex>
 
-#include "ILogger.h"
+#include <Logger/ILogger.h>
 
 class LoggerBase : public ILogger {
 public:

@@ -9,7 +9,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "IDynamicLoaderPlatform.h"
+#include <DynamicLoader/IDynamicLoaderPlatform.h>
 
 class DynamicLoader {
 public:

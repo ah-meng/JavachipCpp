@@ -1,0 +1,7 @@
+@PACKAGE_INIT@
+
+# 이 파일이 설치될 디렉터리와 일치하도록 작성합니다.
+# JavaChipCppTargets.cmake 은 install(EXPORT ...) 로 생성된 파일입니다.
+include("${CMAKE_CURRENT_LIST_DIR}/JavaChipCppTargets.cmake")
+
+# (필요하다면 추가로 export 할 설정이나 메시지 등을 여기에)
