@@ -9,6 +9,7 @@ add_library(${PROJECT_NAME} STATIC
         src/Logger/ConsoleLogger.cpp
         src/Logger/FileLogger.cpp
         src/StringUtil/StringUtil.cpp
+        src/SerialPort/AsioSerialPort.cpp
 )
 add_library(JavaChipCpp::Core ALIAS ${PROJECT_NAME})
 
