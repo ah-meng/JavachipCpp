@@ -5,6 +5,7 @@
 #ifndef ISERIALPORT_H
 #define ISERIALPORT_H
 
+#include <cstdint>
 #include <string>
 #include <vector>
 #include <functional>
