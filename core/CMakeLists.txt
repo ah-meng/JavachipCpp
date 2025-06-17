@@ -12,6 +12,8 @@ add_library(${PROJECT_NAME} STATIC
 )
 add_library(JavaChipCpp::Core ALIAS ${PROJECT_NAME})
 
+include(lib/asio.cmake)
+
 # C++17 요구사항 (API에도 전파)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
